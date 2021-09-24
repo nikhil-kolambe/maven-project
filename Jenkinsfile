@@ -18,11 +18,12 @@ pipeline {
                 sh "docker login -u nikhilkolambe -p ${dockerHubPwd}"
             }
                 sh "docker push nikhilkolambe/jenkinstomcat"
-
             }
         }
         stage('Running Container'){
-            sh "docker run -p 8181:8080 -d -name my-japp nikhilkolambe/jenkinstomcat"
+            steps{
+                sh "docker run -p 8181:8080 -d -name my-japp nikhilkolambe/jenkinstomcat"
+            }
         }
     }
 }
