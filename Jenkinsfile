@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Running Container'){
             steps{
-                sh "docker run -p 8181:8080 -d -name my-japp nikhilkolambe/jenkinstomcat"
+                sh "docker run -p 8181:8080 -d nikhilkolambe/jenkinstomcat"
             }
         }
     }
