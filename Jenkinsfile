@@ -14,7 +14,9 @@ pipeline {
         }
         stage('Push'){
             steps{
-                sh 'docker login -u nikhilkolambe -p winners@123'
+                withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                sh "docker login -u nikhilkolambe -p ${dockerHubPwd}"
+            }
                 sh "docker push nikhilkolambe/jenkinstomcat"
 
             }
