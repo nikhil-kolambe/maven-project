@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps{
-                sh "docker build . -t tomcatwebapp"
+                sh "docker build . -t mtomcatwebapp"
             }
         }
     }
